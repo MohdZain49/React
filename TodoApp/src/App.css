@@ -2,16 +2,14 @@
   margin-top: 50px;
 }
 
-
-
-.input-container, .todoItemsContainer {
+.input-container,
+.todoItemsContainer {
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 60%;
 }
-
 
 .labelInput {
   width: 250px;
@@ -23,7 +21,7 @@
 }
 
 .dateInput {
-  width: 150px;
+  width: 180px;
   height: 40px;
   border: 1px solid black;
   border-radius: 5px;
@@ -42,8 +40,6 @@
   color: white;
 }
 
-
-
 .todoLabel {
   display: flex;
   justify-content: left;
@@ -61,13 +57,13 @@
   display: flex;
   justify-content: left;
   align-items: center;
-  width: 150px;
+  width: 180px;
   height: 40px;
   border: none;
   border-radius: 5px;
   font-size: 22px;
   padding: 10px;
-  float: left
+  float: left;
 }
 
 .deleteButton {
