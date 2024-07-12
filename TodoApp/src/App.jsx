@@ -4,29 +4,29 @@ import AppName from "./Components/AppName";
 import TodoInput from "./Components/TodoInput";
 import TodoItems from "./Components/TodoItems";
 import { useState } from "react";
+import TodoItemsContext from "./Store/TodoItemsContext";
 
 function App() {
   const [todoList, setTodoList] = useState([]);
 
-  const handleAddTodo = (todo) => {
+  const addTodoItem = (todo) => {
     setTodoList((prev) => [...prev, todo]);
   };
 
-  const handleDeleteTodo = (id) => {
+  const deleteTodoItem = (id) => {
     setTodoList(() => todoList.filter((todo) => todo.id !== id));
   };
 
   return (
-    <center>
-      <div className="container">
-        <AppName></AppName>
-        <TodoInput handleAddTodo={handleAddTodo}></TodoInput>
-        <TodoItems
-          todoList={todoList}
-          handleDeleteTodo={handleDeleteTodo}
-        ></TodoItems>
-      </div>
-    </center>
+    <TodoItemsContext.Provider
+      value={{ todoList, addTodoItem, deleteTodoItem }}
+    >
+      <center className="container">
+        <AppName />
+        <TodoInput />
+        <TodoItems />
+      </center>
+    </TodoItemsContext.Provider>
   );
 }
 

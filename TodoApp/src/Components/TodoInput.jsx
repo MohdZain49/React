@@ -1,15 +1,19 @@
 import { useRef } from "react";
+import TodoItemsContext from "../Store/TodoItemsContext";
+import { useContext } from "react";
 
-const TodoInput = ({ handleAddTodo }) => {
+const TodoInput = () => {
   const todoMessage = useRef();
   const todoDueDate = useRef();
+  const { addTodoItem } = useContext(TodoItemsContext);
 
   const addTodo = (event) => {
     event.preventDefault();
     let todoLableElement = todoMessage.current.value;
     let todoDueDateElement = todoDueDate.current.value;
+
     if (todoLableElement && todoDueDateElement) {
-      handleAddTodo({
+      addTodoItem({
         id: Date.now(),
         todoLabel: todoLableElement,
         dueDate: todoDueDateElement,
