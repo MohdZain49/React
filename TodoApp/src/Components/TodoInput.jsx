@@ -1,6 +1,5 @@
-import { useRef } from "react";
-import TodoItemsContext from "../Store/TodoItemsContext";
-import { useContext } from "react";
+import { useRef, useContext } from "react";
+import {TodoItemsContext} from "../Store/TodoItemsContext";
 
 const TodoInput = () => {
   const todoMessage = useRef();
@@ -18,6 +17,7 @@ const TodoInput = () => {
         todoLabel: todoLableElement,
         dueDate: todoDueDateElement,
       });
+
       todoMessage.current.value = "";
       todoDueDate.current.value = "";
     }

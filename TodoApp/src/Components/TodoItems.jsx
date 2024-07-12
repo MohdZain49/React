@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import TodoItemsContext from "../Store/TodoItemsContext";
+import { TodoItemsContext } from "../Store/TodoItemsContext";
 
 const TodoItems = () => {
   const { todoList, deleteTodoItem } = useContext(TodoItemsContext);
