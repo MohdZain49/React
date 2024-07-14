@@ -1,0 +1,16 @@
+.sidebar {
+  height: 100vh;
+}
+
+.footer {
+  width: 100vw;
+}
+
+.section {
+  width: 100%;
+}
+
+.createPost {
+  padding: 30px;
+  height: 65%;
+}
