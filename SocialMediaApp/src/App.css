@@ -10,7 +10,37 @@
   width: 100%;
 }
 
-.createPost {
+.main-section {
+  width: 100%;
+  min-height: 60%;
   padding: 30px;
+}
+
+.createPost {
   height: 65%;
+}
+
+.reactionAndViews {
+  display: flex;
+  justify-content: space-between;
+  font-size: 22px;
+}
+
+.reactionSection {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.views {
+  float: right;
+}
+
+.label {
+  font-size: 13px;
+}
+
+.tag {
+  margin: 10px 10px;
+  margin-left: 0;
 }
