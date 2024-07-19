@@ -1,30 +1,25 @@
-import { createContext, useContext, useReducer } from "react";
+import {
+  createContext,
+  useContext,
+  useReducer,
+  useEffect,
+  useState,
+} from "react";
 
 export const PostListContext = createContext({
   postList: [],
   addPost: () => {},
+  addInitialPosts: () => {},
   deletePost: () => {},
+  fetching: null,
 });
-
-const DEFAULT_POST = [
-  {
-    id: 1,
-    title: "His mother had always taught him",
-    body: "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
-    tags: ["history", "american", "crime"],
-    reactions: {
-      likes: 192,
-      dislikes: 25,
-    },
-    views: 305,
-    userId: 121,
-  },
-];
 
 const postListReducer = (prevPostList, action) => {
   let newPostList = prevPostList;
   if (action.type === "ADD_POST") {
     newPostList = [action.payload.post, ...prevPostList];
+  } else if (action.type === "ADD_INITIAL_POSTS") {
+    newPostList = action.payload.posts;
   } else if (action.type === "DELETE_POST") {
     newPostList = prevPostList.filter(
       (post) => post.id !== action.payload.postId
@@ -34,10 +29,8 @@ const postListReducer = (prevPostList, action) => {
 };
 
 export const PostListContextProvider = ({ children }) => {
-  const [postList, dispatchPostList] = useReducer(
-    postListReducer,
-    DEFAULT_POST
-  );
+  const [postList, dispatchPostList] = useReducer(postListReducer, []);
+  const [fetching, setFetching] = useState(false);
 
   const addPost = (post) => {
     let newPost = {
@@ -49,6 +42,15 @@ export const PostListContextProvider = ({ children }) => {
     dispatchPostList(newPost);
   };
 
+  const addInitialPosts = (posts) => {
+    dispatchPostList({
+      type: "ADD_INITIAL_POSTS",
+      payload: {
+        posts,
+      },
+    });
+  };
+
   const deletePost = (postId) => {
     dispatchPostList({
       type: "DELETE_POST",
@@ -58,8 +60,25 @@ export const PostListContextProvider = ({ children }) => {
     });
   };
 
+  useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    setFetching(true);
+    fetch("https://dummyjson.com/posts", { signal })
+      .then((res) => res.json())
+      .then((data) => addInitialPosts(data.posts));
+    setFetching(false);
+
+    return () => {
+      controller.abort;
+    };
+  }, []);
+
   return (
-    <PostListContext.Provider value={{ postList, addPost, deletePost }}>
+    <PostListContext.Provider
+      value={{ postList, addPost, deletePost, addInitialPosts, fetching }}
+    >
       {children}
     </PostListContext.Provider>
   );
