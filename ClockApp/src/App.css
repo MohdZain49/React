@@ -1,0 +1,58 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #2e2e44;
+}
+
+.clock-heading {
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  font-size: 70px;
+}
+
+.card {
+  height: 250px;
+  width: 45%;
+  border-radius: 10px;
+  margin: 30px auto;
+  background-color: #2d2f41;
+  box-shadow: 0 5px 25px rgba(14, 21, 37, 0.8);
+}
+
+.time-format {
+  color: white;
+  font-size: 30px;
+  float: right;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.time-section {
+  display: flex;
+}
+
+.time {
+  font-size: 120px;
+  color: white;
+  margin: 0px 5px 8px 45px;
+}
+
+.meridiem {
+  color: white;
+  font-size: 22px;
+  padding-top: 40px;
+  margin-left: 8px;
+}
+
+.date-section {
+  color: white;
+  margin: 0 auto;
+  font-size: 35px;
+  margin: 0 160px;
+}
