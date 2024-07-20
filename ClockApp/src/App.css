@@ -18,11 +18,19 @@ body {
 
 .card {
   height: 250px;
-  width: 45%;
+  width: 600px;
   border-radius: 10px;
   margin: 30px auto;
   background-color: #2d2f41;
   box-shadow: 0 5px 25px rgba(14, 21, 37, 0.8);
+}
+
+.mid-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .time-format {
@@ -36,6 +44,7 @@ body {
 .time-section {
   display: flex;
 }
+
 
 .time {
   font-size: 120px;
@@ -52,7 +61,5 @@ body {
 
 .date-section {
   color: white;
-  margin: 0 auto;
   font-size: 35px;
-  margin: 0 160px;
 }
