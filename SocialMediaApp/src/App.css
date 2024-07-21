@@ -1,6 +1,6 @@
 .sidebar {
-  min-height: 100%;
-  height: 100vh;
+  
+  min-height: 100vh;
 }
 
 .footer {
@@ -58,4 +58,89 @@
 
 .loading-spinner {
   margin-top: 15%;
+  
+}
+
+.friends {
+  display: flex;
+  width: 290px;
+  height: 100px;
+  background-color: rgb(39, 39, 48);
+  color: white;
+  align-items: center;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 10px ;
+}
+
+.suggestedFriends {
+  /* background-color: rgb(168, 168, 168); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.friendInfo{
+  margin-left: 20px;
+}
+
+.userImage {
+  height: 50px;
+  width: 50px;
+  /* border: 2px solid black; */
+  border-radius: 50px;
+}
+
+.FriendBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 35px;
+  margin-right: 8px;
+  font-size: 12px;
+}
+
+.friendName {
+  font-size: 15px;
+}
+
+.friendsLists {
+  display: flex;
+  justify-content: space-between;
+}
+
+.suggestionLabel {
+  width: 250px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: rgb(168, 168, 168);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  
+}
+
+.myFriends {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(189, 195, 195);
+  width: 200px;
+  border-radius: 50px;
+  padding: 10px 20px;
+  height: 35px;
+  margin-bottom: 15px;
+}
+
+.myFriendImage {
+ width: 30px;
+ height: 30px;
+}
+
+.myFriendName {
+ margin-top: 15px;
 }

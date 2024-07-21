@@ -31,7 +31,9 @@ const Post = ({ post }) => {
                 <span className="label">{` ${post.reactions.dislikes} dislikes`}</span>
               </div>
             </div>
-            <p className="views label">{`${post.views} views`}</p>
+            {post.views && (
+              <p className="views label">{`${post.views} views`}</p>
+            )}
           </div>
 
           {post.tags.map((tag) => (

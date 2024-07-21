@@ -65,9 +65,11 @@ export const PostListContextProvider = ({ children }) => {
     const signal = controller.signal;
 
     setFetching(true);
+
     fetch("https://dummyjson.com/posts", { signal })
       .then((res) => res.json())
       .then((data) => addInitialPosts(data.posts));
+
     setFetching(false);
 
     return () => {

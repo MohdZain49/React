@@ -9,19 +9,39 @@ const Createpost = () => {
 
   const handleAddPost = (event) => {
     event.preventDefault();
-    let post = {
-      id: Date.now(),
-      title: postTitleElement.current.value,
-      body: postDescriptionElement.current.value,
-      tags: postTagsElements.current.value.split(" "),
-      reactions: {
-        likes: Math.floor(Math.random() * 1000),
-        dislikes: Math.floor(Math.random() * 1000),
-      },
-      views: Math.floor(Math.random() * 1000),
-      userId: Math.floor(Math.random() * 1000),
-    };
-    addPost(post);
+
+
+    fetch("https://dummyjson.com/posts/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        title: postTitleElement.current.value,
+          body: postDescriptionElement.current.value,
+          tags: postTagsElements.current.value.split(" "),
+          reactions: {
+            likes: Math.floor(Math.random() * 1000),
+            dislikes: Math.floor(Math.random() * 1000),
+          },
+          views: Math.floor(Math.random() * 1000),
+          userId: Math.floor(Math.random() * 100),
+      }),
+    })
+      .then((res) => res.json())
+      .then((post) => addPost(post))
+
+    // let post = {
+    //   id: Date.now(),
+    //   title: postTitleElement.current.value,
+    //   body: postDescriptionElement.current.value,
+    //   tags: postTagsElements.current.value.split(" "),
+    //   reactions: {
+    //     likes: Math.floor(Math.random() * 1000),
+    //     dislikes: Math.floor(Math.random() * 1000),
+    //   },
+    //   views: Math.floor(Math.random() * 1000),
+    //   userId: Math.floor(Math.random() * 1000),
+    // };
+    // addPost(post);
     postTitleElement.current.value = "";
     postDescriptionElement.current.value = "";
     postTagsElements.current.value = "";
