@@ -1,11 +1,16 @@
 import useFriendContext from "../Store/FriendSectionContext";
 
 const Friends = ({ friend }) => {
-  const { handleAddFriend } = useFriendContext();
+  const { handleAddFriend, handleDeleteFriend } =
+    useFriendContext();
   return (
     <div className="friends">
       <div>
-        <img className="userImage" src={friend.image} alt="user-image" />
+        <img
+          className="userImage"
+          src={friend.image}
+          alt="user-image"
+        />
       </div>
       <div className="friendInfo">
         <p className="friendName">{`${friend.firstName} ${friend.lastName}`}</p>
@@ -17,7 +22,11 @@ const Friends = ({ friend }) => {
           >
             Add
           </button>
-          <button type="button" className="btn btn-primary FriendBtn">
+          <button
+            type="button"
+            className="btn btn-primary FriendBtn"
+            onClick={() => handleDeleteFriend(friend.id)}
+          >
             Remove
           </button>
         </div>

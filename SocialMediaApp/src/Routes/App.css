@@ -128,8 +128,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(189, 195, 195);
+  background-color: rgb(227, 229, 229);
   width: 200px;
+  border: 1px solid gray;
   border-radius: 50px;
   padding: 10px 20px;
   height: 35px;
@@ -143,4 +144,11 @@
 
 .myFriendName {
  margin-top: 15px;
+}
+
+.myFriendsList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

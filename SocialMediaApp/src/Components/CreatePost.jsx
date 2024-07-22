@@ -1,47 +1,37 @@
 import { useRef } from "react";
 import usePostContext from "../Store/PostListContext";
+import { useNavigate } from "react-router-dom";
 
 const Createpost = () => {
   const { addPost } = usePostContext();
   const postTitleElement = useRef();
   const postDescriptionElement = useRef();
   const postTagsElements = useRef();
+  const navigate = useNavigate();
 
   const handleAddPost = (event) => {
     event.preventDefault();
-
 
     fetch("https://dummyjson.com/posts/add", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         title: postTitleElement.current.value,
-          body: postDescriptionElement.current.value,
-          tags: postTagsElements.current.value.split(" "),
-          reactions: {
-            likes: Math.floor(Math.random() * 1000),
-            dislikes: Math.floor(Math.random() * 1000),
-          },
-          views: Math.floor(Math.random() * 1000),
-          userId: Math.floor(Math.random() * 100),
+        body: postDescriptionElement.current.value,
+        tags: postTagsElements.current.value.split(" "),
+        reactions: {
+          likes: Math.floor(Math.random() * 1000),
+          dislikes: Math.floor(Math.random() * 1000),
+        },
+        views: Math.floor(Math.random() * 1000),
+        userId: Math.floor(Math.random() * 100),
       }),
     })
       .then((res) => res.json())
-      .then((post) => addPost(post))
-
-    // let post = {
-    //   id: Date.now(),
-    //   title: postTitleElement.current.value,
-    //   body: postDescriptionElement.current.value,
-    //   tags: postTagsElements.current.value.split(" "),
-    //   reactions: {
-    //     likes: Math.floor(Math.random() * 1000),
-    //     dislikes: Math.floor(Math.random() * 1000),
-    //   },
-    //   views: Math.floor(Math.random() * 1000),
-    //   userId: Math.floor(Math.random() * 1000),
-    // };
-    // addPost(post);
+      .then((post) => {
+        addPost(post);
+        navigate("/");
+      });
     postTitleElement.current.value = "";
     postDescriptionElement.current.value = "";
     postTagsElements.current.value = "";
