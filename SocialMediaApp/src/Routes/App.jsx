@@ -1,8 +1,8 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
-import Header from "../Components/Header";
-import Sidebar from "../Components/Sidebar";
-import Footer from "../Components/Footer";
+import Header from "../Components/MainSection/Header";
+import Sidebar from "../Components/MainSection/Sidebar";
+import Footer from "../Components/MainSection/Footer";
 import { PostListContextProvider } from "../Store/PostListContext";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";

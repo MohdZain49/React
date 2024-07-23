@@ -1,7 +1,6 @@
-import { useState } from "react";
 import usePostContext from "../../Store/PostListContext";
 import Post from "./Post";
-import LoadingSpinner from "../Main Section/LoadingSpinner";
+import LoadingSpinner from "../MainSection/LoadingSpinner";
 
 const PostList = () => {
   const { postList, fetching } = usePostContext();

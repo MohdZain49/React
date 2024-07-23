@@ -3,9 +3,9 @@ import ReactDOM from "react-dom/client";
 import App from "./Routes/App.jsx";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import CreatePost from "./Components/CreatePost.jsx";
-import PostList from "./Components/PostList.jsx";
-import FriendsSection from "./Components/FriendsSection.jsx";
+import CreatePost from "./Components/PostSection/CreatePost.jsx";
+import PostList from "./Components/PostSection/PostList.jsx";
+import FriendsSection from "./Components/FriendSection/FriendsSection.jsx";
 
 const router = createBrowserRouter([
   {
