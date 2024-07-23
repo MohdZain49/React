@@ -1,16 +1,11 @@
-import useFriendContext from "../Store/FriendSectionContext";
+import useFriendContext from "../../Store/FriendSectionContext";
 
 const Friends = ({ friend }) => {
-  const { handleAddFriend, handleDeleteFriend } =
-    useFriendContext();
+  const { handleAddFriend, handleDeleteFriend } = useFriendContext();
   return (
     <div className="friends">
       <div>
-        <img
-          className="userImage"
-          src={friend.image}
-          alt="user-image"
-        />
+        <img className="userImage" src={friend.image} alt="user-image" />
       </div>
       <div className="friendInfo">
         <p className="friendName">{`${friend.firstName} ${friend.lastName}`}</p>

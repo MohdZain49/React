@@ -8,26 +8,23 @@ import { useState } from "react";
 import { Outlet } from "react-router-dom";
 
 function App() {
-  const [selectedTab, setSelectedTab] = useState("Home"); 
-    return (
-      <PostListContextProvider>
-        <div>
-          <Header />
-          <div className="d-flex">
-            <Sidebar
-              setSelectedTab={setSelectedTab}
-              selectedTab={selectedTab}
-            />
-            <div className="section">
-              <div className="main-section">
-                <Outlet />             
-              </div>
-              <Footer />
+  const [selectedTab, setSelectedTab] = useState("Home");
+  return (
+    <PostListContextProvider>
+      <div>
+        <Header />
+        <div className="d-flex">
+          <Sidebar setSelectedTab={setSelectedTab} selectedTab={selectedTab} />
+          <div className="section">
+            <div className="main-section">
+              <Outlet />
             </div>
+            <Footer />
           </div>
         </div>
-      </PostListContextProvider>
-    );
+      </div>
+    </PostListContextProvider>
+  );
 }
 
 export default App;

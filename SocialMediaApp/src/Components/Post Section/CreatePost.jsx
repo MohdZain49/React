@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import usePostContext from "../Store/PostListContext";
+import usePostContext from "../../Store/PostListContext";
 import { useNavigate } from "react-router-dom";
 
 const Createpost = () => {

@@ -1,7 +1,7 @@
 import { BiLike } from "react-icons/bi";
 import { BiDislike } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
-import usePostContext from "../Store/PostListContext";
+import usePostContext from "../../Store/PostListContext";
 
 const Post = ({ post }) => {
   const { deletePost } = usePostContext();
