@@ -2,7 +2,6 @@ import { createContext, useContext, useState, useEffect } from "react";
 
 export const ClockContext = createContext({
   time: new Date(),
-  timeFormat: "12 hours",
 });
 
 export const ClockContextProvider = ({ children }) => {
